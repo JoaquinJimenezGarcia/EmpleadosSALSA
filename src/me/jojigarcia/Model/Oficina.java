@@ -101,9 +101,18 @@ public class Oficina extends Trabajador {
         salario();
 
         return "Oficina{" +
-                "lugar='" + lugar + '\'' +
-                ", añosTrabajados=" + añosTrabajados + '\'' +
-                ", salario=" + sueldoActual + "€" +
+                "planta=" + planta +
+                ", oficina='" + oficina + '\'' +
+                ", area='" + area + '\'' +
+                ", seccion='" + seccion + '\'' +
+                ", lugar='" + lugar + '\'' +
+                ", añosTrabajados=" + añosTrabajados +
+                ", sueldo a pagar=" + sueldoActual +
+                ", sueldoBase=" + sueldoBase +
+                ", maxTrienios=" + maxTrienios +
+                ", subidaTrienio=" + subidaTrienio +
+                ", sueldoTrienio=" + sueldoTrienio +
+                ", mesesSinCobrar=" + mesesSinCobrar +
                 '}';
     }
 }

@@ -19,7 +19,7 @@ public class Main {
                 "informatica",
                 "sistemas",
                 "1",
-                4,
+                7,
                 2);
 
         System.out.println(juan);
