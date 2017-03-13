@@ -10,8 +10,14 @@ public class Oficina extends Trabajador {
     private String seccion = "";
     private String lugar = planta + ", " + oficina + ". " + area + ", " + seccion;
     private int añosTrabajados;
+    private double sueldoActual;
+    private int sueldoBase = 1150; // Sueldo con el que empiezan (anual)
+    private int maxTrienios = 10; // Trienios Maximos
+    private int subidaTrienio = 35; // Aumento mensual por trienio
+    private int sueldoTrienio = subidaTrienio * (añosTrabajados/3);
+    private int mesesSinCobrar = 0;
 
-    public Oficina(String nombre, String apellido, String dni, String direccion, String correo, int numSegSoc, int telefono, int planta, String oficina, String area, String seccion, String lugar, int añosTrabajados) {
+    public Oficina(String nombre, String apellido, String dni, String direccion, String correo, int numSegSoc, int telefono, int planta, String oficina, String area, String seccion, String lugar, int añosTrabajados, int mesesSinCobrar) {
         super(nombre, apellido, dni, direccion, correo, numSegSoc, telefono);
         this.planta = planta;
         this.oficina = oficina;
@@ -19,6 +25,15 @@ public class Oficina extends Trabajador {
         this.seccion = seccion;
         this.lugar = lugar;
         this.añosTrabajados = añosTrabajados;
+        this.mesesSinCobrar = mesesSinCobrar;
+    }
+
+    public int getMesesSinCobrar(){
+        return mesesSinCobrar;
+    }
+
+    public void setMesesSinCobrar(int mesesSinCobrar){
+        this.mesesSinCobrar = mesesSinCobrar;
     }
 
     public int getPlanta() {
@@ -69,11 +84,26 @@ public class Oficina extends Trabajador {
         this.añosTrabajados = añosTrabajados;
     }
 
+    public double salario(){
+        if(añosTrabajados<=maxTrienios){
+            sueldoActual = (sueldoBase + sueldoTrienio) * mesesSinCobrar;
+        }else{
+            sueldoActual = (sueldoBase + (subidaTrienio * maxTrienios))*mesesSinCobrar;
+        }
+
+        sueldoActual = sueldoActual - (sueldoActual*0.18);
+
+        return sueldoActual;
+    }
+
     @Override
     public String toString() {
+        salario();
+
         return "Oficina{" +
-                ", lugar='" + lugar + '\'' +
-                ", añosTrabajados=" + añosTrabajados +
+                "lugar='" + lugar + '\'' +
+                ", añosTrabajados=" + añosTrabajados + '\'' +
+                ", salario=" + sueldoActual + "€" +
                 '}';
     }
 }

@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Comerciales juan = new Comerciales(
+        Oficina juan = new Oficina(
                 "juan",
                 "dominguez",
                 "45235345d",
@@ -14,8 +14,13 @@ public class Main {
                 "adad",
                 123424,
                 234234,
-                "asdad",
-                4);
+                5,
+                "i+d",
+                "informatica",
+                "sistemas",
+                "1",
+                4,
+                2);
 
         System.out.println(juan);
     }

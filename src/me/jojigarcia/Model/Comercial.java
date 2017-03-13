@@ -3,11 +3,11 @@ package me.jojigarcia.Model;
 /**
  * Created by joaquinjimenezgarcia on 9/3/17.
  */
-public class Comerciales extends Trabajador{
+public class Comercial extends Trabajador{
     private String provincia;
     private int altasNuevasSin;
 
-    public Comerciales(String nombre, String apellido, String dni, String direccion, String correo, int numSegSoc, int telefono, String provincia, int altasNuevasSin) {
+    public Comercial(String nombre, String apellido, String dni, String direccion, String correo, int numSegSoc, int telefono, String provincia, int altasNuevasSin) {
         super(nombre, apellido, dni, direccion, correo, numSegSoc, telefono);
         this.provincia = provincia;
         this.altasNuevasSin = altasNuevasSin;
@@ -31,7 +31,7 @@ public class Comerciales extends Trabajador{
 
     @Override
     public String toString() {
-        return "Comerciales{" +
+        return "Comercial{" +
                 "provincia='" + provincia + '\'' +
                 ", nombre='" + getNombre() + '\'' +
                 ", apellidos='" + getApellido() + '\'' +
