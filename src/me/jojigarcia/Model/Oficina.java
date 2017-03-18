@@ -12,8 +12,8 @@ public class Oficina extends Trabajador {
     private int añosTrabajados;
     private double sueldoActual;
     private int sueldoBase = 1150; // Sueldo con el que empiezan (anual)
-    private int maxTrienios = 10; // Trienios Maximos
-    private int subidaTrienio = 35; // Aumento mensual por trienio
+    final private int maxTrienios = 10; // Trienios Maximos
+    final private int subidaTrienio = 35; // Aumento mensual por trienio
     private int sueldoTrienio = subidaTrienio * (añosTrabajados/3);
     private int mesesSinCobrar = 0;
 
@@ -84,7 +84,7 @@ public class Oficina extends Trabajador {
         this.añosTrabajados = añosTrabajados;
     }
 
-    public double salario(){
+    public double calcularSueldo(){
         if(añosTrabajados<=maxTrienios){
             sueldoActual = (sueldoBase + sueldoTrienio) * mesesSinCobrar;
         }else{
@@ -98,7 +98,7 @@ public class Oficina extends Trabajador {
 
     @Override
     public String toString() {
-        salario();
+        calcularSueldo();
 
         return "Oficina{" +
                 "planta=" + planta +

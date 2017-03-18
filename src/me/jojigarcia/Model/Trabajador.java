@@ -3,7 +3,7 @@ package me.jojigarcia.Model;
 /**
  * Created by joaquinjimenezgarcia on 9/3/17.
  */
-public class Trabajador {
+public abstract class Trabajador {
     private String nombre;
     private String apellido;
     private String dni;
@@ -77,6 +77,8 @@ public class Trabajador {
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
+
+    public abstract double calcularSueldo();
 
     @Override
     public String toString() {

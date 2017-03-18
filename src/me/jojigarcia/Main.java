@@ -22,6 +22,19 @@ public class Main {
                 7,
                 2);
 
+        Libres pepe = new Libres(
+                "Pepe",
+                "Gordo Cabron",
+                "23134324A",
+                "Avd/ Turia",
+                "pepe@comil.on",
+                4323,
+                342345,
+                8,
+                8
+        );
+
         System.out.println(juan);
+        System.out.println(pepe);
     }
 }
