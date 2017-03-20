@@ -29,17 +29,25 @@ public class Libres extends Trabajador{
         this.horasTrabajadasNoRetr = horasTrabajadasNoRetr;
     }
 
-    En cuanto a los profesionales libres el cálculo se realiza en base a las horas trabajadas
-    (y no remuneradas hasta el momento) durante el último mes a razón de 25€/hora. Con el fin
-    de incentivar a los profesionales que más han colaborado con la empresa, SALSA añade un plus de
-    productividad en relación a las horas que han trabajado:
+    public double calcularSueldo(){
+        final int PRECIO_HORA = 25;
+        double sueldo = 0;
+         if(horasTrabajadasNoRetr < 10){
+             sueldo = horasTrabajadasNoRetr * PRECIO_HORA;
+         }else if(horasTrabajadasNoRetr >= 10 && horasTrabajadasNoRetr < 25){
+             sueldo = horasTrabajadasNoRetr * PRECIO_HORA + (horasTrabajadasNoRetr*PRECIO_HORA*0.03);
+         }else if(horasTrabajadasNoRetr >= 25 && horasTrabajadasNoRetr < 50){
+             sueldo = horasTrabajadasNoRetr * PRECIO_HORA + (horasTrabajadasNoRetr*PRECIO_HORA*0.05);
+         }else if(horasTrabajadasNoRetr >= 50){
+             sueldo = horasTrabajadasNoRetr * PRECIO_HORA + (horasTrabajadasNoRetr*PRECIO_HORA*0.1);
+         }
 
-    Menos de 10 horas: No tiene plus
-    Entre 10 y menos de 25: Plus del 3%.
-    Entre 25 y menos de 50: Plus del 5%
-    Más de 50: Plus del 10%
+         if (sueldo>850){
+            sueldo = sueldo - (sueldo * 0.11);
+         }
 
-    Los sueldos de los profesionales libres solo llevarán retención si superan los 850€ y ésta será del 11%.
+        return sueldo;
+    }
 
     @Override
     public String toString() {
