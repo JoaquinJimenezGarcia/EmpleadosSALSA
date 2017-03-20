@@ -34,7 +34,21 @@ public class Main {
                 8
         );
 
+        Comercial marta = new Comercial(
+                "Marta",
+                "Flores De Giles",
+                "85428425M",
+                "C/ Rodo, 2",
+                "maflores@gmail.com",
+                858751221,
+                654554214,
+                "Sevilla",
+                5,
+                5
+        );
+
         System.out.println(juan);
         System.out.println(pepe);
+        System.out.println(marta);
     }
 }
